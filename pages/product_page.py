@@ -30,3 +30,11 @@ class ProductPage(BasePage):
     def should_be_cost_add_product(self, product_cost):
         cart_cost = self.browser.find_element(*ProductPageLocators.CART_COST).text
         assert cart_cost == product_cost, "Cost of cart is not match with product's cost"
+
+    def guest_cant_see_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_CONFIRM), \
+            "Success message is presented, but should not be"
+
+    def message_disappeared_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_CONFIRM), \
+            "Success message is disappeared, but should not be"
