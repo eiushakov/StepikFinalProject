@@ -21,3 +21,9 @@ class ProductPageLocators:
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main>h1")
     CART_COST = (By.CSS_SELECTOR, ".alertinner>p>strong")
     PRODUCT_COST = (By.CSS_SELECTOR, '.product_main>p[class="price_color"]')
+
+
+class BasketPageLocators:
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group>a")
+    PRODUCTS_IN_BASKET = (By.CSS_SELECTOR, "#content_inner>div>div>h2")
+    BASKET_EMPTY = (By.XPATH, "//p[text()[contains(.,'basket is empty')]]")
