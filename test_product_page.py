@@ -68,8 +68,7 @@ class TestUserAddToBasketFromProductPage:
         basket_page = BasketPage(browser, self.link)
         basket_page.open()
         basket_page.go_to_basket_page()
-        assert basket_page.is_not_element_present(
-            *ProductPageLocators.PRODUCT_CONFIRM), "Success message is presented, but should not be"
+        basket_page.user_cant_see_success_message()
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):

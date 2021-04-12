@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import BasketPageLocators
+from .locators import BasketPageLocators, ProductPageLocators
 
 
 class BasketPage(BasePage):
@@ -17,5 +17,9 @@ class BasketPage(BasePage):
                                                                                     "but should not be "
 
     def guest_can_see_text_about_empty_basket(self):
-        assert self.is_element_present(*BasketPageLocators.BASKET_EMPTY), 'Text "Your basket is empty" is not ' \
-                                                                              'presented '
+        assert self.is_element_present(*BasketPageLocators.BASKET_EMPTY), "Text 'Your basket is empty' is not ' \
+                                                                          'presented"
+
+    def user_cant_see_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.PRODUCT_CONFIRM), "Success message is presented, but should not be"
